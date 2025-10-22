@@ -94,31 +94,39 @@ function App() {
       {/* Spline 3D Hero Section - Full Screen */}
       <SplineHero />
       
-      {/* Sticky Bottom Development Bar with Modern Effects */}
+      {/* Sticky Bottom Development Bar with Dark Theme */}
       <motion.div 
-        className="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-xl bg-gradient-to-r from-slate-900/80 via-slate-800/85 to-slate-900/80 text-white shadow-2xl border-t border-cyan-400/30 neon-border-top"
+        className="fixed bottom-0 left-0 right-0 z-[9999] bg-gray-800 text-white shadow-2xl border-t border-gray-600 bottom-bar-container"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 1 }}
+        style={{ 
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 9999,
+          minHeight: '60px'
+        }}
       >
         <div className={`${isMobile ? 'h-16 px-3' : 'h-20 px-6 md:px-8'} flex items-center justify-between`}>
           {/* Left side - Brand and status */}
           <div className={`flex items-center ${isMobile ? 'space-x-2' : 'space-x-6'}`}>
             <div className="flex items-center space-x-2">
-              <Home className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-cyan-400 drop-shadow-neon`} />
+              <Home className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-yellow-100`} />
               <div>
-                <div className={`font-bold ${isMobile ? 'text-sm' : 'text-xl'} bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent`}>
+                <div className={`font-bold ${isMobile ? 'text-sm' : 'text-xl'} text-yellow-100`}>
                   CAFCO HOME
                 </div>
-                <div className={`${isMobile ? 'text-xs' : 'text-xs'} text-slate-400`}>Premium Furniture</div>
+                <div className={`${isMobile ? 'text-xs' : 'text-xs'} text-gray-300`}>Premium Furniture</div>
               </div>
             </div>
             {!isMobile && (
               <div className="flex items-center space-x-3">
-                <div className="w-3 h-3 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full animate-pulse shadow-neon-orange"></div>
+                <div className="w-3 h-3 bg-yellow-100 rounded-full animate-pulse"></div>
                 <div>
-                  <div className="text-sm font-medium text-orange-400">Under Development</div>
-                  <div className="text-xs text-slate-400">Launching Soon</div>
+                  <div className="text-sm font-medium text-yellow-100">Under Development</div>
+                  <div className="text-xs text-gray-300">Launching Soon</div>
                 </div>
               </div>
             )}
@@ -128,17 +136,32 @@ function App() {
           {!isMobile && (
             <div className="flex-1 max-w-lg mx-8">
               <div className="text-center mb-2">
-                <span className="text-sm font-medium text-slate-300">Website Development Progress</span>
+                <span className="text-sm font-medium text-gray-300">Website Development Progress</span>
               </div>
-              <div className="bg-slate-700/50 backdrop-blur-sm rounded-full h-3 overflow-hidden border border-cyan-400/20 shadow-inner">
-                <motion.div 
-                  className="h-full bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 rounded-full shadow-neon-progress"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "85%" }}
-                  transition={{ duration: 2, ease: "easeInOut" }}
-                />
+              <div className="bg-gray-700 rounded-full h-4 overflow-hidden border border-gray-600 shadow-inner flex">
+                {/* Block-style progress bar */}
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-yellow-100 h-full w-2 mr-1"></div>
+                <div className="bg-gray-600 h-full w-2 mr-1"></div>
+                <div className="bg-gray-600 h-full w-2 mr-1"></div>
+                <div className="bg-gray-600 h-full w-2"></div>
               </div>
-              <div className="text-xs text-slate-400 text-center mt-1">85% Complete</div>
+              <div className="text-xs text-gray-300 text-center mt-1">85% Complete</div>
             </div>
           )}
           
@@ -146,7 +169,7 @@ function App() {
           <div className="flex items-center">
             <motion.button
               onClick={() => setShowContactPopup(true)}
-              className={`bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 ${isMobile ? 'px-3 py-2 text-sm' : 'px-6 py-3'} rounded-lg font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg border border-cyan-400/30 backdrop-blur-sm neon-glow-button`}
+              className={`bg-gray-700 hover:bg-gray-600 ${isMobile ? 'px-3 py-2 text-sm' : 'px-6 py-3'} rounded-lg font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg border border-gray-600 text-yellow-100`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -159,30 +182,44 @@ function App() {
         {/* Mobile progress bar */}
         {isMobile && (
           <div className="px-3 pb-2">
-            <div className="bg-slate-700/50 backdrop-blur-sm rounded-full h-2 overflow-hidden border border-cyan-400/20">
-              <motion.div 
-                className="h-full bg-gradient-to-r from-orange-400 via-yellow-400 to-green-400 rounded-full"
-                initial={{ width: "0%" }}
-                animate={{ width: "85%" }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-              />
+            <div className="bg-gray-700 rounded-full h-3 overflow-hidden border border-gray-600 flex">
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-yellow-100 h-full w-1 mr-0.5"></div>
+              <div className="bg-gray-600 h-full w-1 mr-0.5"></div>
+              <div className="bg-gray-600 h-full w-1 mr-0.5"></div>
+              <div className="bg-gray-600 h-full w-1"></div>
             </div>
-            <div className="text-xs text-slate-400 text-center mt-1">Development: 85%</div>
+            <div className="text-xs text-gray-300 text-center mt-1">Development: 85%</div>
           </div>
         )}
       </motion.div>
 
-      {/* Contact Popup with Modern Effects */}
+      {/* Contact Popup with Dark Theme */}
       {showContactPopup && (
         <motion.div
-          className="fixed inset-0 z-60 flex items-center justify-center bg-black/60 backdrop-blur-md"
+          className="fixed inset-0 z-60 flex items-center justify-center bg-black/60"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setShowContactPopup(false)}
         >
           <motion.div
-            className={`bg-white/10 backdrop-blur-xl rounded-2xl ${isMobile ? 'p-6 mx-4 max-w-sm' : 'p-8 max-w-md mx-4'} w-full shadow-2xl border border-cyan-400/30 neon-border-glow`}
+            className={`bg-gray-800 rounded-2xl ${isMobile ? 'p-6 mx-4 max-w-sm' : 'p-8 max-w-md mx-4'} w-full shadow-2xl border border-gray-600`}
             initial={{ scale: 0.8, opacity: 0, y: 50 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.8, opacity: 0, y: 50 }}
@@ -190,43 +227,43 @@ function App() {
           >
             <div className="text-center mb-6">
               <div className="flex items-center justify-center space-x-2 mb-2">
-                <Home className={`${isMobile ? 'w-6 h-6' : 'w-8 h-8'} text-cyan-400 drop-shadow-neon`} />
-                <h2 className={`${isMobile ? 'text-xl' : 'text-2xl'} font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent`}>
+                <Home className={`${isMobile ? 'w-6 h-6' : 'w-8 h-8'} text-yellow-100`} />
+                <h2 className={`${isMobile ? 'text-xl' : 'text-2xl'} font-bold text-yellow-100`}>
                   CAFCO HOME
                 </h2>
               </div>
-              <p className="text-slate-200">Get in touch with us</p>
+              <p className="text-gray-300">Get in touch with us</p>
             </div>
             
             <div className="space-y-4">
               <motion.a
                 href="mailto:info@cafcohome.com"
-                className="flex items-center space-x-3 p-4 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300 border border-cyan-400/20 neon-hover-effect"
+                className="flex items-center space-x-3 p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300 border border-gray-600"
                 whileHover={{ scale: 1.02 }}
               >
-                <Mail className="w-5 h-5 text-cyan-400" />
+                <Mail className="w-5 h-5 text-yellow-100" />
                 <div>
                   <div className="font-medium text-white">Email</div>
-                  <div className={`${isMobile ? 'text-xs' : 'text-sm'} text-slate-300`}>info@cafcohome.com</div>
+                  <div className={`${isMobile ? 'text-xs' : 'text-sm'} text-gray-300`}>info@cafcohome.com</div>
                 </div>
               </motion.a>
               
               <motion.a
                 href="tel:+6282422901"
-                className="flex items-center space-x-3 p-4 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300 border border-cyan-400/20 neon-hover-effect"
+                className="flex items-center space-x-3 p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-all duration-300 border border-gray-600"
                 whileHover={{ scale: 1.02 }}
               >
-                <Phone className="w-5 h-5 text-cyan-400" />
+                <Phone className="w-5 h-5 text-yellow-100" />
                 <div>
                   <div className="font-medium text-white">Phone</div>
-                  <div className={`${isMobile ? 'text-xs' : 'text-sm'} text-slate-300`}>+62 824 2290 1</div>
+                  <div className={`${isMobile ? 'text-xs' : 'text-sm'} text-gray-300`}>+62 824 2290 1</div>
                 </div>
               </motion.a>
             </div>
             
             <motion.button
               onClick={() => setShowContactPopup(false)}
-              className={`w-full mt-6 bg-gradient-to-r from-slate-800/80 to-slate-900/80 hover:from-slate-700/80 hover:to-slate-800/80 text-white ${isMobile ? 'py-2.5' : 'py-3'} rounded-lg font-medium transition-all duration-300 backdrop-blur-sm border border-cyan-400/30 neon-glow-button`}
+              className={`w-full mt-6 bg-gray-700 hover:bg-gray-600 text-white ${isMobile ? 'py-2.5' : 'py-3'} rounded-lg font-medium transition-all duration-300 border border-gray-600`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
